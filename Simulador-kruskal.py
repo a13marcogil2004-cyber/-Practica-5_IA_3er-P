@@ -15,7 +15,8 @@ class UnionFind:
             self.padre[raiz_b] = raiz_a
             return True
         return False
-    
+
+
 vertices = ['A', 'B', 'C', 'D', 'E', 'F']
 
 aristas = [
@@ -29,6 +30,7 @@ aristas = [
     ('D', 'F', 6),
     ('E', 'F', 3)
 ]
+
 
 def kruskal(vertices, aristas, minimo=True):
 
@@ -45,7 +47,7 @@ def kruskal(vertices, aristas, minimo=True):
     costo_total = 0
     paso = 1
 
-for origen, destino, peso in aristas_ordenadas:
+    for origen, destino, peso in aristas_ordenadas:
 
         print(f"PASO {paso}")
         print(f"Evaluando: {origen} -- {destino} ({peso})")
@@ -60,3 +62,21 @@ for origen, destino, peso in aristas_ordenadas:
             print("✗ Se descarta (forma ciclo)")
 
         print("-" * 35)
+
+        paso += 1
+
+    print("\nARISTAS DEL ÁRBOL")
+
+    for origen, destino, peso in arbol:
+        print(f"{origen} -- {destino} ({peso})")
+
+    print(f"\nCosto total: {costo_total}")
+
+    return arbol
+
+
+kruskal(vertices, aristas, minimo=True)
+
+print("\n" + "=" * 50)
+
+kruskal(vertices, aristas, minimo=False)
