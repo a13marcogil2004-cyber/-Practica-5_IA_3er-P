@@ -29,3 +29,19 @@ aristas = [
     ('D', 'F', 6),
     ('E', 'F', 3)
 ]
+
+def kruskal(vertices, aristas, minimo=True):
+
+    uf = UnionFind(vertices)
+
+    if minimo:
+        aristas_ordenadas = sorted(aristas, key=lambda x: x[2])
+        print("\nÁRBOL DE MÍNIMO COSTE\n")
+    else:
+        aristas_ordenadas = sorted(aristas, key=lambda x: x[2], reverse=True)
+        print("\nÁRBOL DE MÁXIMO COSTE\n")
+
+    arbol = []
+    costo_total = 0
+    paso = 1
+
