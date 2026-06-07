@@ -45,3 +45,18 @@ def kruskal(vertices, aristas, minimo=True):
     costo_total = 0
     paso = 1
 
+for origen, destino, peso in aristas_ordenadas:
+
+        print(f"PASO {paso}")
+        print(f"Evaluando: {origen} -- {destino} ({peso})")
+
+        if uf.unir(origen, destino):
+            arbol.append((origen, destino, peso))
+            costo_total += peso
+
+            print("✓ Arista agregada")
+            print(f"Costo acumulado: {costo_total}")
+        else:
+            print("✗ Se descarta (forma ciclo)")
+
+        print("-" * 35)
